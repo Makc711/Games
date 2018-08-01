@@ -1,0 +1,18 @@
+﻿  aquarium.cpp
+  bullet.cpp
+  game.cpp
+  gameObject.cpp
+d:\_vs_projects\games\_mycoolgames\ravenholm\main\aquarium.cpp(37): warning C4244: аргумент: преобразование "const float" в "int", возможна потеря данных
+  main.cpp
+  military.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: APIENTRY: изменение макроопределения (компилируется исходный файл game.cpp)
+  d:\_vs_projects\games\_mycoolgames\_external_libraries\glfw\include\glfw\glfw3.h(98): note: см. предыдущее определение "APIENTRY" (компилируется исходный файл game.cpp)
+  openglLib.cpp
+  unitsActions.cpp
+  utils.cpp
+c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(130): warning C4005: APIENTRY: изменение макроопределения (компилируется исходный файл openglLib.cpp)
+  d:\_vs_projects\games\_mycoolgames\_external_libraries\glfw\include\glfw\glfw3.h(98): note: см. предыдущее определение "APIENTRY" (компилируется исходный файл openglLib.cpp)
+  zombie.cpp
+openglLib.obj : error LNK2019: ссылка на неразрешенный внешний символ SOIL_load_OGL_texture в функции "unsigned int __cdecl loadTexture(char const *)" (?loadTexture@@YAIPEBD@Z)
+..\..\_External_Libraries\SOIL\lib\SOIL.lib : warning LNK4272: тип компьютера библиотеки "x86" конфликтует с типом целевого компьютера "x64"
+D:\_VS_PROJECTS\GAMES\_MyCoolGames\Ravenholm\x64\Debug\main.exe : fatal error LNK1120: неразрешенных внешних элементов: 1
