@@ -81,16 +81,16 @@ public class Enemy extends Human {
         Point end = new Point(0, 0);
         GameObject player = getGame().getPlayer();
         if (player != null) {
-            int endColumn = (int)(getGame().getPlayer().getX()) / Constants.TILE_SIZE;
-            int endRow = (int)(getGame().getPlayer().getY()) / Constants.TILE_SIZE;
+            int endColumn = (int)(player.getX()) / Constants.TILE_SIZE;
+            int endRow = (int)(player.getY()) / Constants.TILE_SIZE;
             end = new Point(endColumn, endRow);
         }
         Point[] way = getGame().getWayFinder().find(start, end);
         if (way != null && way.length >= Constants.TILES_IN_HUMAN_SIZE) {
-            float dX = way[Constants.TILES_IN_HUMAN_SIZE - 1].getColumn() * Constants.TILE_SIZE + Constants.TILE_SIZE / 2 - getX();
-            float dY = way[Constants.TILES_IN_HUMAN_SIZE - 1].getRow() * Constants.TILE_SIZE + Constants.TILE_SIZE / 2 - getY();
+            float dX = way[Constants.TILES_IN_HUMAN_SIZE / 2 + 1].getColumn() * Constants.TILE_SIZE + Constants.TILE_SIZE / 2 - getX();
+            float dY = way[Constants.TILES_IN_HUMAN_SIZE / 2 + 1].getRow() * Constants.TILE_SIZE + Constants.TILE_SIZE / 2 - getY();
             int up = (dY >= 0) ? -1 : 1;
-            float directionAngle = (float)(up * Math.acos(dX / Math.sqrt(dX * dX + dY * dY)) * 180 / Math.PI);
+            float directionAngle = (float)(up * Math.toDegrees(Math.acos(dX / Math.sqrt(dX * dX + dY * dY))));
             setAngle(directionAngle);
             move(Direction.UP);
         } else {

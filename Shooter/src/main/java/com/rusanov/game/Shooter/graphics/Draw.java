@@ -55,8 +55,8 @@ public class Draw {
         GL11.glLineWidth(2);
         GL11.glBegin(GL11.GL_POLYGON);
         for (int i = 0; i <= 360; i += angle){
-            float x = (float)Math.cos(Math.PI / 180 * i ) * radius;
-            float y = (float)Math.sin(Math.PI / 180 * i ) * radius;
+            float x = (float)Math.cos(Math.toRadians(i)) * radius;
+            float y = (float)Math.sin(Math.toRadians(i)) * radius;
             GL11.glVertex2f(x, y);
         }
         GL11.glEnd();

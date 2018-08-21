@@ -51,36 +51,36 @@ public class Human extends GameObject {
         setYSpeed(0);
         switch (direction) {
             case UP:
-                setXSpeed((float)(speed * Math.cos(angle / 180 * Math.PI)));
-                setYSpeed((float)(speed * -Math.sin(angle / 180 * Math.PI)));
+                setXSpeed((float)(speed * Math.cos(Math.toRadians(angle))));
+                setYSpeed((float)(speed * -Math.sin(Math.toRadians(angle))));
                 break;
             case DOWN:
-                setXSpeed((float)(speed * -Math.cos(angle / 180 * Math.PI)));
-                setYSpeed((float)(speed * Math.sin(angle / 180 * Math.PI)));
+                setXSpeed((float)(speed * -Math.cos(Math.toRadians(angle))));
+                setYSpeed((float)(speed * Math.sin(Math.toRadians(angle))));
                 break;
             case LEFT:
-                setXSpeed((float)(speed * Math.cos((angle + 90) / 180 * Math.PI)));
-                setYSpeed((float)(speed * -Math.sin((angle + 90) / 180 * Math.PI)));
+                setXSpeed((float)(speed * Math.cos(Math.toRadians(angle + 90))));
+                setYSpeed((float)(speed * -Math.sin(Math.toRadians(angle + 90))));
                 break;
             case RIGHT:
-                setXSpeed((float)(speed * Math.cos((angle - 90) / 180 * Math.PI)));
-                setYSpeed((float)(speed * -Math.sin((angle - 90) / 180 * Math.PI)));
+                setXSpeed((float)(speed * Math.cos(Math.toRadians(angle - 90))));
+                setYSpeed((float)(speed * -Math.sin(Math.toRadians(angle - 90))));
                 break;
             case UP_LEFT:
-                setXSpeed((float)(speed * Math.cos((angle + 45) / 180 * Math.PI)));
-                setYSpeed((float)(speed * -Math.sin((angle + 45) / 180 * Math.PI)));
+                setXSpeed((float)(speed * Math.cos(Math.toRadians(angle + 45))));
+                setYSpeed((float)(speed * -Math.sin(Math.toRadians(angle + 45))));
                 break;
             case UP_RIGHT:
-                setXSpeed((float)(speed * Math.cos((angle - 45) / 180 * Math.PI)));
-                setYSpeed((float)(speed * -Math.sin((angle - 45) / 180 * Math.PI)));
+                setXSpeed((float)(speed * Math.cos(Math.toRadians(angle - 45))));
+                setYSpeed((float)(speed * -Math.sin(Math.toRadians(angle - 45))));
                 break;
             case DOWN_LEFT:
-                setXSpeed((float)(speed * Math.cos((angle + 135) / 180 * Math.PI)));
-                setYSpeed((float)(speed * -Math.sin((angle + 135) / 180 * Math.PI)));
+                setXSpeed((float)(speed * Math.cos(Math.toRadians(angle + 135))));
+                setYSpeed((float)(speed * -Math.sin(Math.toRadians(angle + 135))));
                 break;
             case DOWN_RIGHT:
-                setXSpeed((float)(speed * Math.cos((angle - 135) / 180 * Math.PI)));
-                setYSpeed((float)(speed * -Math.sin((angle - 135) / 180 * Math.PI)));
+                setXSpeed((float)(speed * Math.cos(Math.toRadians(angle - 135))));
+                setYSpeed((float)(speed * -Math.sin(Math.toRadians(angle - 135))));
                 break;
             default:
                 System.out.println("Error: non-existent direction \"" + direction.name() + "\"!");
@@ -95,8 +95,8 @@ public class Human extends GameObject {
         float[] position = calculateFrontCellPosition();
         float x = position[0];
         float y = position[1];
-        float xSpeed = (float)(Constants.BULLET_SPEED * Math.cos(angle / 180 * Math.PI));
-        float ySpeed = (float)(Constants.BULLET_SPEED * -Math.sin(angle / 180 * Math.PI));
+        float xSpeed = (float)(Constants.BULLET_SPEED * Math.cos(Math.toRadians(angle)));
+        float ySpeed = (float)(Constants.BULLET_SPEED * -Math.sin(Math.toRadians(angle)));
         Bullet bullet = (Bullet)getGame().createObject(GameObjectType.BULLET, x, y);
         if (bullet != null) {
             bullet.setOwnerObject(this);
@@ -111,8 +111,8 @@ public class Human extends GameObject {
     private float[] calculateFrontCellPosition() {
         float radius = (float)(textureSize / 2 +
                 (double)Constants.HUMAN_GUN_SIZE * textureSize / (2 * textureHuman.getTextureWidth())) + Constants.BULLET_SIZE / 2;
-        float x = getX() + (float)Math.cos(angle / 180 * Math.PI) * radius;
-        float y = getY() + (float)-Math.sin(angle / 180 * Math.PI) * radius;
+        float x = getX() + (float)Math.cos(Math.toRadians(angle)) * radius;
+        float y = getY() + (float)-Math.sin(Math.toRadians(angle)) * radius;
         return new float[]{x, y};
     }
 
@@ -166,8 +166,8 @@ public class Human extends GameObject {
 
             float oldX = x;
             float oldY = y;
-            x += (float)(Math.cos(angle / 180 * Math.PI) * kX);
-            y += (float)(-Math.sin(angle / 180 * Math.PI) * kY);
+            x += (float)(Math.cos(Math.toRadians(angle)) * kX);
+            y += (float)(-Math.sin(Math.toRadians(angle)) * kY);
             float dX = Math.abs(x - oldX);
             float dY = Math.abs(y - oldY);
             distanceToHuman += (float)Math.sqrt(dX * dX + dY * dY);

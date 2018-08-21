@@ -9,9 +9,7 @@ import org.newdawn.slick.util.ResourceLoader;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.IntBuffer;
 
 public class Input {
@@ -21,11 +19,7 @@ public class Input {
     public static boolean isKeyClicked(int key) {
         boolean isKeyPushedDownLast = isKeyPushedDownCurrent;
         isKeyPushedDownCurrent = Keyboard.isKeyDown(key);
-        boolean keyState = false;
-        if (!isKeyPushedDownCurrent && isKeyPushedDownLast) {
-            keyState = true;
-        }
-        return keyState;
+        return !isKeyPushedDownCurrent && isKeyPushedDownLast;
     }
 
     public static void keyboardRefresh() {
@@ -51,11 +45,7 @@ public class Input {
     public static boolean isMouseButtonClicked(int button) {
         boolean isKeyPushedDownLast = isMouseButtonPushedDownCurrent;
         isMouseButtonPushedDownCurrent = Mouse.isButtonDown(button);
-        boolean keyState = false;
-        if (!isMouseButtonPushedDownCurrent && isKeyPushedDownLast) {
-            keyState = true;
-        }
-        return keyState;
+        return !isMouseButtonPushedDownCurrent && isKeyPushedDownLast;
     }
 
     public static void setCursor(String imageName, int xHotSpot, int yHotSpot) {

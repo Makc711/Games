@@ -24,7 +24,7 @@ public class Player extends Human {
 
         double deltaX = Mouse.getX() - getX();
         double deltaY = Display.getHeight() - Mouse.getY() - getY();
-        float angle = (float)(Math.atan2(-deltaY, deltaX) * 180 / Math.PI);
+        float angle = (float)(Math.toDegrees(Math.atan2(-deltaY, deltaX)));
         setAngle(angle);
 
         if (!Keyboard.isKeyDown(keyRight) && Keyboard.isKeyDown(keyUp) &&

@@ -34,11 +34,11 @@ public class PauseMenu {
                 MenuSizes.DISTANCE_BETWEEN_BUTTONS_Y / 2;
         for (int i = 0; i < PauseItem.values().length; i++) {
             MenuButton button = new MenuButton(PauseItem.values()[i], true);
-            pauseObjects.add(button);
             button.setY(buttonStartY + i * MenuSizes.DISTANCE_BETWEEN_BUTTONS_Y);
             button.setName(PauseItem.values()[i].toString());
             button.setFont(timesNewRoman);
             button.setTextureFont(textureFont);
+            pauseObjects.add(button);
         }
     }
 

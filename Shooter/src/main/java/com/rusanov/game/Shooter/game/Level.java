@@ -25,11 +25,11 @@ class Level {
     }
 
     private void createBlock() {
-        for (int j = 0; j < Constants.ATTEMPTS_TO_CREATE_BLOCK; j++) {
+        for (int i = 0; i < Constants.ATTEMPTS_TO_CREATE_BLOCK; i++) {
             int x = ThreadLocalRandom.current().
-                    nextInt(Constants.BLOCK_SIZE_MAX / 2, Constants.SCREEN_WIDTH - Constants.BLOCK_SIZE_MAX / 2);
+                    nextInt(Constants.BLOCK_SIZE_MAX / 2, Constants.SCREEN_WIDTH - Constants.BLOCK_SIZE_MAX / 2 - 1);
             int y = ThreadLocalRandom.current().
-                    nextInt(Constants.BLOCK_SIZE_MAX / 2, Constants.SCREEN_HEIGHT - Constants.BLOCK_SIZE_MAX / 2);
+                    nextInt(Constants.BLOCK_SIZE_MAX / 2, Constants.SCREEN_HEIGHT - Constants.BLOCK_SIZE_MAX / 2 - 1);
             if (game.createObject(GameObjectType.BLOCK, x, y) != null) {
                 break;
             }

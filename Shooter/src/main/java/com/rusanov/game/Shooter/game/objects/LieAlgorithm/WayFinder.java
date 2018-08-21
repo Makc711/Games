@@ -32,8 +32,8 @@ public class WayFinder {
         for (int indexOfBlock = 0; indexOfBlock < numberOfBlocks; indexOfBlock++) {
             int x0 = (int) objects.get(indexOfBlock).getX() - objects.get(indexOfBlock).getWidth() / 2;
             int y0 = (int) objects.get(indexOfBlock).getY() - objects.get(indexOfBlock).getHeight() / 2;
-            int x1 = x0 + objects.get(indexOfBlock).getWidth();
-            int y1 = y0 + objects.get(indexOfBlock).getHeight();
+            int x1 = x0 + objects.get(indexOfBlock).getWidth() - 1;
+            int y1 = y0 + objects.get(indexOfBlock).getHeight() - 1;
             coordinatesOfBlocks[indexOfBlock][0] = x0;
             coordinatesOfBlocks[indexOfBlock][1] = y0;
             coordinatesOfBlocks[indexOfBlock][2] = x1;
